@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>EZ Shopping 2.0</title>
+    <link rel="shortcut icon" href="content/icons/favicon.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+</head>
+
+<body>
+
+<div id="dish-modal-activate">
+    <div class="modal-background">
+        <div class="dish-modal">
+            <input type="text" id="dish-name" name="">
+            <div id="dish-add">Add</div>
+        </div>
+    </div>
+</div>
+
+<div id="grocery-modal-activate">
+    <div class="modal-background">
+        <div class="grocery-modal">
+            <input type="text" id="grocery-name" name="">
+            <div id="grocery-add">Add</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>EZ Shopping 2.0</h1>
+        </div>
+    </div>
+    <div class="row col-container">
+
+        <div class="col-4 sections">
+            <div id="add-dish" class="section-headline-1">
+                <div>Dishes</div>
+            </div>
+            <div class="section-1 section-content">
+                <ul id="dishes-list"></ul>
+            </div>
+        </div>
+
+        <div class="col-4 sections">
+            <div id="add-grocery" class="section-headline-2">
+                <div>Groceries</div>
+            </div>
+            <div class="section-2 section-content">
+                <ul id="groceries-list"></ul>
+            </div>
+        </div>
+
+        <div class="col-4 sections">
+            <div id="clear-shopping-bar" class="section-headline-3">
+                <div>Shopping Cart</div>
+            </div>
+            <div class="section-3 section-content">
+                <ul id="shopping-cart-list"></ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
