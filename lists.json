@@ -1,14 +1,12 @@
 {
-	"dishes": [
-		{
-		"Pizza": [
-			"Mehl",
-			"..."
-			]
-		}
-	],
+	"dishes": 
+	{
+		"Pizza": ["Mehl", "..."],
+		"Lasagne": ["Nudeln", "..."],
+	},
 
-	"groceries": [
+	"groceries": 
+	[
 		"Butter",
 		"..."
 	]
