@@ -3,18 +3,8 @@
 		{
 		"Pizza": [
 			"Mehl",
-
+			"..."
 			]
-		},
-		{
-		"DishName": [
-			"ingredients",
-			"...",
-			]
-		},
-	], 
-	"ingredients": [
-		"Butter",
-		"...",
+		}
 	]
 }

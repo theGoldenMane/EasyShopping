@@ -10,11 +10,12 @@ $(document).ready(function() {
   }
 
   $.ajax({
-      url: "https://thegoldenmane.github.io/EasyShopping/lists.json",
-      dataType: "json"
-  }).done(function(result){
-      console.log(result);
-  });
+    url: 'https://thegoldenmane.github.io/EasyShopping/lists.json',
+    datatype: 'json'
+  })
+  .done(function (data) { console.log(data); })
+  .fail(function (jqXHR, textStatus, errorThrown) { console.log(errorThrown); });
+
 
   // -----------------------------------------------
 
