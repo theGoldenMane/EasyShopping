@@ -1,106 +1,37 @@
 $(document).ready(function() {
-
-  // TESTING ---------------------------------------
-  for (i = 0; i < 20; i++) {
-    addRow($('#dishes-list'), "dish-test");
-  }
-
-  for (i = 0; i < 5; i++) {
-    addRow($('#groceries-list'), "grocery-test");
-  }
-
+  // Fetch json data
   $.ajax({
     url: 'https://thegoldenmane.github.io/EasyShopping/lists.json',
     datatype: 'json'
   })
-  .done(function (data) { console.log(data); })
+  .done(function (data) { 
+    dishesList = data.dishes; 
+
+    // Fill dishes list
+    $.each( dishesList, function( key, val ) {
+      addRow($('#dishes-list'), key, 0);
+    });
+
+    // Fill groceries list
+    $.each( data.groceries, function( i, val ) {
+      addRow($('#groceries-list'), val, 0);
+    });
+  })
   .fail(function (jqXHR, textStatus, errorThrown) { console.log(errorThrown); });
 
 
-  // -----------------------------------------------
-
-  // Open add dish modal
-  $('#add-dish').click(function(event) {
-    $('#dish-modal-activate').css('display', 'block');
-  });
-
-  // Close add dish modal
-  $('.modal-background').click(function(event) {
-    target = $( event.target );
-    if(target.is($('.modal-background'))) {
-      $('#dish-modal-activate').css('display', 'none');
-    }
-  });
-
-  // Add new dish to list
-  $('#add-dish').click(function(event) {
-    /*newGrocery = $('#grocery-name').val();
-    if(newGrocery != '') {
-      //TODO check is item already exists
-      addRow($('#groceries-list'), newGrocery);
-      $('#dish-name').val('');
-      $('#dish-name').focus();
-      //Todo sql add
-    }*/
-  });
-
   // Add dish ingredients to shopping cart
-  $('#shopping-cart-list').on('click', '.row-content', function() {
-    console.log("add dish ingredients to shopping cart");
-    text = $(event.target).text();
-    //addRow($('#shopping-cart-list'), text);
-    $(event.target).parent().remove();
-  });
-
-
-
-
-
-
-
-
-  // Open add grocery modal
-  $('#add-grocery').click(function(event) {
-    $('#grocery-modal-activate').css('display', 'block');
-  });
-
-  // Close add grocery modal
-  $('.modal-background').click(function(event) {
-    target = $( event.target );
-    if(target.is($('.modal-background'))) {
-      $('#grocery-modal-activate').css('display', 'none');
-    }
-  });
-
-  // Add new grocery item to list
-  $('#grocery-add').click(function(event) {
-    newGrocery = $('#grocery-name').val();
-    if(newGrocery != '') {
-      //TODO check is item already exists
-      addRow($('#groceries-list'), newGrocery);
-      $('#grocery-name').val('');
-      $('#grocery-name').focus();
-      //Todo sql add
-    }
-  });
-
-  //Delete grocery item
-  $('#groceries-list').on('click', '.delete', function() {
-    $(event.target).parent().remove();
-    //TODO Sql delete
-  });
+  $('#dishes-list').on('click', '.row-content', function() {
+    $.each( dishesList[$(event.target).text()], function( key, val ) {
+      addItemToShoppingList(key, val);
+    });
+});
 
 
   // Add grocery item to shopping cart
   $('#groceries-list').on('click', '.row-content', function() {
-    text = $(event.target).text();
-    addRow($('#shopping-cart-list'), text);
-    $(event.target).parent().remove();
+    addItemToShoppingList($(event.target).text(), 1);
   });
-
-
-
-
 
 
   // Clear shopping cart
@@ -109,20 +40,44 @@ $(document).ready(function() {
   });
 });
 
+
 // Add row
-function addRow(target, rowText) {
+function addRow(target, rowText, amount) {
   var li = document.createElement("li");
 
   var content = document.createElement("div");
   content.innerHTML = rowText;
   content.classList.add("row-content");
-
-  var deleteIcon = document.createElement("div");
-  deleteIcon.innerHTML = "X";
-  deleteIcon.classList.add('delete');
-
   li.append(content);
-  li.append(deleteIcon);
+
+  if(amount > 0) {
+    var amountDisplay = document.createElement("div");
+    amountDisplay.innerHTML = amount;
+    amountDisplay.classList.add('amount');
+    li.append(amountDisplay);
+  }
 
   target.append(li);
+}
+
+// Add item to shopping list
+function addItemToShoppingList(itemName, amount) {
+  if($('#shopping-cart-list li').length == 0) {
+      // If list is empty add row
+      addRow($('#shopping-cart-list'), itemName, amount);
+  } else {
+    // If list is not empty check if grocery item already exists -> if true increase amount
+    exists = false;
+    $("#shopping-cart-list li").each(function(index, li) {
+      if($(li).find(".row-content").text() == itemName) {
+        $(li).find(".amount").html(parseInt($(li).find(".amount").text()) + amount);
+        exists = true;
+      }       
+    });
+
+    // If list is not empty but grocery item doesn't exist yet add new row
+    if(!exists) {
+      addRow($('#shopping-cart-list'), itemName, amount);
+    }
+  }
 }
