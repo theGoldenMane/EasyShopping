@@ -9,23 +9,12 @@ $(document).ready(function() {
     addRow($('#groceries-list'), "grocery-test");
   }
 
-  yourVariable = '';
-  jQuery.ajax({
-    type: "POST",
-    url: 'index.php',
-    dataType: 'json',
-    data: {functionname: 'add', arguments: [1, 2]},
-
-    success: function (obj, textstatus) {
-                  if( !('error' in obj) ) {
-                      yourVariable = obj.result;
-                  }
-                  else {
-                      console.log(obj.error);
-                  }
-            }
-    });
-  console.log(yourVariable);
+  $.ajax({
+      url: "https://thegoldenmane.github.io/EasyShopping/lists.json",
+      dataType: "json"
+  }).done(function(result){
+      console.log(result);
+  });
 
   // -----------------------------------------------
 
