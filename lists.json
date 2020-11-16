@@ -1,8 +1,18 @@
 {
 	"dishes": 
 	{
-		"Pizza": ["Mehl", "..."],
-		"Lasagne": ["Nudeln", "..."]
+		"Pizza": 
+		{
+			"Mehl": 600,
+			"Hefe": 1,
+			"Mozzarella": 2
+		},
+		"Lasagne": 
+		{
+			"Nudeln": 400,
+			"Tomatensauce": 1,
+			"Mozzarella": 2
+		}
 	},
 
 	"groceries": 
@@ -11,3 +21,4 @@
 		"..."
 	]
 }
+
