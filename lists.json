@@ -1,24 +1,19 @@
 {
-	"dishes": 
-	{
-		"pizza": 
-		{
-			"mehl": 600,
-			"hefe": 1,
-			"mozzarella": 2
-		},
-		"lasagne": 
-		{
-			"nudeln": 400,
-			"tomatensauce": 1,
-			"mozzarella": 2
-		}
-	},
-
-	"groceries": 
-	[
-		"butter",
-		"milch",
-		"..."
-	]
+    "dishes": {
+        "pizza": {
+            "mehl": 600,
+            "hefe": 1,
+            "mozzarella": 2
+        },
+        "lasagne": {
+            "nudeln": 400,
+            "tomatensauce": 1,
+            "mozzarella": 2
+        }
+    },
+    "groceries": [
+        "butter",
+        "milch",
+        "..."
+    ]
 }
