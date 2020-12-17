@@ -9,11 +9,48 @@
             "nudeln": 400,
             "tomatensauce": 1,
             "mozzarella": 2
+        },
+        "burger": {
+            "hackfleich (gemischt)": 700,
+            "burgerkäse": 1,
+            "burgersemmeln": 1,
+            "pommes": 2
+
+        },
+        "brotzeit": {
+            "steinofenbaguette": 2,
+            "mozzarella": 1,
+            "mozzarella (gerieben)": 1,
+            "pesto (rot)": 1,
+            "salami": 1
+        },
+        "wraps": {
+            "wraps": 1,
+            "paprika (rot)": 1,
+            "paprika (gelb)": 1,
+            "tomatensauce": 1,
+            "hühnchenbruststreifen": 1
+        },
+        "selbstgemachte nudeln": {
+            "mehl": 400,
+            "wasser": 250,
+            "eier": 3
+        },
+        "knödel mit speck und ei": {
+            "knödelteig": 1,
+            "baconwürfel": 1,
+            "eier": 4
         }
     },
     "groceries": [
         "butter",
         "milch",
-        "..."
+        "schokolade",
+        "chips",
+        "gummibärchen",
+        "klopapier",
+        "zewa",
+        "waschmittel",
+        "backpapier"
     ]
 }
